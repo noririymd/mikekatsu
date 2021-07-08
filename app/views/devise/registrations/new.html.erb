@@ -1,29 +1,121 @@
-<h2>Sign up</h2>
+ <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <%= link_to 'MIKEKATSU', root_path, class: "navbar-brand" %>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item"><%= link_to 'Singin', new_user_registration_path, class: "nav-link" %></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="registration-main">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <p class="personal"><ins>個人情報</ins></p>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">ニックネーム</label>
+      <%= f.text_field :nickname, autofocus: true,placeholder:"Example input placeholder" ,class:"form-control" ,id:"formGroupExampleInput"%>
+    </div>
+    <div class="name-form">
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">苗字</label>
+        <%= f.text_field :first_name, autofocus: true,placeholder:"Example input placeholder" ,class:"form-control" ,id:"formGroupExampleInput"%>
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">氏名</label>
+        <%= f.text_field :last_name, autofocus: true,placeholder:"Example input placeholder" ,class:"form-control" ,id:"formGroupExampleInput"%>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="name-form">
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">苗字カナ</label>
+        <%= f.text_field :first_name_kana, autofocus: true,placeholder:"Example input placeholder" ,class:"form-control" ,id:"formGroupExampleInput"%>
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">氏名カナ</label>
+        <%= f.text_field :last_name_kana, autofocus: true,placeholder:"Example input placeholder" ,class:"form-control" ,id:"formGroupExampleInput"%>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">誕生日</label>
+      <div class='input-birth-wrap'>
+        <%= raw sprintf(
+                    f.date_select(
+                      :birth_date,
+                      {use_month_numbers: true,
+                      prompt:'--',
+                      start_year: 1930,
+                      end_year: (Time.now.year - 5),
+                      date_separator: '%s'},
+                      {class:"form-select form-select-sm", 
+                      id:"birth-date"}),
+                    "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+      </div>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">性別</label>
+      <div class="form-check">
+        <%= f.radio_button :gender, '男', class:"form-check-input" ,id:"flexRadioDefault1",checked: true%>
+        <label class="form-check-label" for="flexRadioDefault1">
+          男
+        </label>
+      </div>
+      <div class="form-check">
+        <%= f.radio_button :gender, '女', class:"form-check-input" ,id:"flexRadioDefault2"%>
+        <label class="form-check-label" for="flexRadioDefault2">
+          女
+        </label>
+      </div>
+      <div class="form-check">
+        <%= f.radio_button :gender, 'その他', class:"form-check-input" ,id:"flexRadioDefault3" %>
+        <label class="form-check-label" for="flexRadioDefault3">
+          その他
+        </label>
+      </div>
+      <div class="form-check">
+        <%= f.radio_button :gender,  '回答なし', class:"form-check-input" ,id:"flexRadioDefault4" %>
+        <label class="form-check-label" for="flexRadioDefault4">
+          回答しない
+        </label>
+      </div>
+    </div>
+
+    <p class="account"><ins>アカウント情報</ins></p>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">email</label>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"Example input placeholder" ,class:"form-control" ,id:"formGroupExampleInput"%>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password",placeholder:"Example input placeholder" ,class:"form-control" ,id:"formGroupExampleInput" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"Example input placeholder" ,class:"form-control" ,id:"formGroupExampleInput" %>
+    </div>
+
+    <div class='register-btn'>
+      <div class="btn btn-primary" >
+        <%= f.submit "Sign up",class: "sign-btn" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%# <%= render "devise/shared/links" %>
+

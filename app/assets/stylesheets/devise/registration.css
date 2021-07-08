@@ -1,0 +1,45 @@
+#error_explanation{
+  padding-top: 15px;
+}
+
+.registration-main {
+  width: 100%;
+  min-width: 800px;
+  height: 100%;
+  background-color: rgba(92, 77, 66, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:auto !important;
+}
+
+.new_user{
+  margin-top: 100px;
+  width: 30%;
+}
+.name-form {
+  display: flex;
+  justify-content: space-between;
+}
+.personal{
+  font-size: 180%;
+ }
+
+.account{
+  font-size: 180%;
+ }
+
+.register-btn{
+  text-align: center;
+}
+
+.sign-btn{
+  border: none; 
+  background: transparent; /* 背景の灰色を消す */
+}
+
+.input-birth-wrap{
+  display: flex;
+  height: 50%;
+}
+
