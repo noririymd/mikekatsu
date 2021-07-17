@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("../scripts.js")
+require("../header.js")
 import "bootstrap"
 import "../stylesheets/application"
 

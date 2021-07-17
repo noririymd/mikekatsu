@@ -8,7 +8,7 @@
 // 
 
 window.addEventListener('DOMContentLoaded', event => {
-
+if (location.pathname == "/" ){
     // Navbar shrink function
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
@@ -22,6 +22,7 @@ window.addEventListener('DOMContentLoaded', event => {
         }
 
     };
+
 
     // Shrink the navbar 
     navbarShrink();
@@ -55,5 +56,11 @@ window.addEventListener('DOMContentLoaded', event => {
     new SimpleLightbox({
         elements: '#portfolio a.portfolio-box'
     });
+}else{
+    window.onload = onLoad;
 
+    function onLoad() {
+         document.body.querySelector('#mainNav').style.backgroundColor = "#5C4D42"
+    };
+};
 });

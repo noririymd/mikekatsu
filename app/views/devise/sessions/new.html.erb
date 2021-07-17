@@ -1,15 +1,19 @@
-<h2>Log in</h2>
 
+<%= render "shared/header" %>
+<div class="session-main">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+<p class="account"><ins>ログイン情報</ins></p>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">メールアドレス</label>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"登録済みのメールアドレスを入力してください" ,class:"form-control" ,id:"formGroupExampleInput"%>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">パスワード</label>
+      <%= f.password_field :password, autocomplete: "new-password",placeholder:"登録済みのパスワードを入力してください" ,class:"form-control" ,id:"formGroupExampleInput" %>
+    </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
@@ -18,9 +22,12 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+    <div class='register-btn'>
+      <div class="btn btn-primary" >
+        <%= f.submit "Log in",class: "sign-btn" %>
+      </div>
+    </div>
 <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+
