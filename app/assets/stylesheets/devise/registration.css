@@ -1,0 +1,50 @@
+#error_explanation{
+  padding-top: 15px;
+}
+
+.registration-main {
+  width: 100%;
+  min-width: 800px;
+  height: 100%;
+  background-color: #f5f6f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:auto !important;
+}
+.navbar-shrink1{
+  background-color:#5C4D42;
+}
+
+.new_user{
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 30%;
+}
+.name-form {
+  display: flex;
+  justify-content: space-between;
+}
+.personal{
+  font-size: 180%;
+ }
+
+.account{
+  font-size: 180%;
+ }
+
+.register-btn{
+  text-align: center;
+}
+
+.sign-btn{
+  border: none; 
+  background: transparent; /* 背景の灰色を消す */
+  color:#fff;
+}
+
+.input-birth-wrap{
+  display: flex;
+  height: 50%;
+}
+

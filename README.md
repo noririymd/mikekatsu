@@ -14,7 +14,6 @@
 | last_name_kana     | string              | null: false             |
 | birth_date         | date                | null: false             |
 | gender             | integer             | null: false             |
-| prefecture_id      | integer             | null: false             |
 
 ### Association
 
@@ -28,6 +27,7 @@
 | Column             | Type                | Options                 |
 | ------------------ | ------------------- | ----------------------- |
 | id(PK)             | デフォルト            |                         |
+| prefecture_id      | integer             |                         |
 | description        | text                |                         |
 | current_job        | string              |                         |
 | job_history        | string              |                         |
