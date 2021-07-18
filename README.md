@@ -1,4 +1,4 @@
-## DB 設計
+ ## DB 設計
 
 ## users table
 
@@ -34,7 +34,7 @@
 | educational_background | string          |                         |
 | award              | string              |                         |
 | qualification      | string              |                         |
-| user_id            | integer             | foreign_key: true       |
+| user               | references          | foreign_key: true       |
 
 ### Association
 
@@ -46,11 +46,11 @@
 | Column             | Type                | Options                 |
 | ------------------ | ------------------- | ----------------------- |
 | id(PK)             | デフォルト            |                         |
-| portfolio          | string              | null: false             |
+| portfolio_url      | string              | null: false             |
 | name               | string              | null: false             |
 | description        | text                | null: false             |
 | language           | string              | null: false             |
-| user_id            | integer             | foreign_key: true       |
+| user               | references          | foreign_key: true       |
 
 ### Association
 
@@ -79,8 +79,8 @@
 | Column             | Type                | Options                 |
 | ------------------ | ------------------- | ----------------------- |
 | id(PK)             | デフォルト            |                         |
-| portfolio_id       | integer             | foreign_key: true       |
-| tag_id             | integer             | foreign_key: true       |
+| portfolio          | references          | foreign_key: true       |
+| tag                | references          | foreign_key: true       |
 
 ### Association
 
@@ -93,8 +93,8 @@
 | Column             | Type                | Options                 |
 | ------------------ | ------------------- | ----------------------- |
 | id(PK)             | デフォルト            |                         |
-| user_id            | integer             | foreign_key: true       |
-| portfolio_id       | integer             | foreign_key: true       |
+| user               | references          | foreign_key: true       |
+| portfolio          | references          | foreign_key: true       |
 
 ### Association
 
@@ -108,8 +108,8 @@
 | ------------------ | ------------------- | ----------------------- |
 | id(PK)             | デフォルト            |                         |
 | message            | text                | null: false             |
-| user_id            | integer             | foreign_key: true       |
-| receive_user_id    | integer             | foreign_key: {to_table: :users} |
+| user               | references          | foreign_key: true       |
+| receive_user       | references          | foreign_key: {to_table: :users} |
 
 ### Association
 
