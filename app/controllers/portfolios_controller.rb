@@ -7,4 +7,20 @@ class PortfoliosController < ApplicationController
     @portfolio = Portfolio.new
   end
 
+  def create
+    @portfolio = Portfolio.new(portfolio_params)
+    if @portfolio.save
+      return redirect_to root_path
+    else
+      render 'new'
+    end
+  end
+
+
+  private
+
+  def portfolio_params
+    params.require(:portfolio).permit(:portfolio_url, :name, :description, :language, :image).merge(user_id: current_user.id)
+  end
+
 end

@@ -5,8 +5,13 @@
         <p class="personal"><ins>ポートフォリオ</ins></p>
 
         <div class="mb-3">
+          <label for="formFile" class="form-label">写真</label>
+          <%= f.file_field :image, id:"formFile", class:"form-control" %>
+        </div>
+
+        <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">URL</label>
-          <%= f.text_field :portfolio, autofocus: true,placeholder:"ポートフォリオURLを入力してください" ,class:"form-control" ,id:"formGroupExampleInput"%>
+          <%= f.text_field :portfolio_url, autofocus: true,placeholder:"ポートフォリオURLを入力してください" ,class:"form-control" ,id:"formGroupExampleInput"%>
         </div>
 
         <div class="mb-3">
@@ -16,12 +21,12 @@
 
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">ポートフォリオの説明</label>
-          <%= f.text_area :name, autofocus: true,placeholder:"ポートフォリオに関する説明を入力してください" ,class:"form-control" ,id:"formGroupExampleInput",rows:"7"%>
+          <%= f.text_area :description, autofocus: true,placeholder:"ポートフォリオに関する説明を入力してください" ,class:"form-control" ,id:"formGroupExampleInput",rows:"7"%>
         </div>
 
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">プログラミング言語</label>
-          <%= f.text_field :name, autofocus: true,placeholder:"プログラミング言語を入力してください" ,class:"form-control" ,id:"formGroupExampleInput"%>
+          <%= f.text_field :language, autofocus: true,placeholder:"プログラミング言語を入力してください" ,class:"form-control" ,id:"formGroupExampleInput"%>
         </div>
 
         <div class='register-btn'>
