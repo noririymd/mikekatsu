@@ -1,12 +1,21 @@
   <%= render "shared/header" %>
   <div class="portfolio-main">
     <div class="portfolio-insert">
-      <%= form_with model: @portfolio ,class:"portfolio-form" ,local: true do |f| %>
+      <%= form_with model: @portfolio ,class:"portfolio-form",local: true do |f| %>
         <p class="personal"><ins>ポートフォリオ</ins></p>
+        <div id="portfolio-preview">
+          <%# <div class="image-box"> 
+            <img class="image-file" src="https://static-cse.canva.com/blob/247588/free-photo-material-00.jpg">
+            <div class="edit-btn">編集</div>
+          </div> %>
 
-        <div class="mb-3">
-          <label for="formFile" class="form-label">写真</label>
-          <%= f.file_field :image, id:"formFile", class:"form-control" %>
+          <div class="mb-3 image-upload", id="image-upload">
+            <div class="image-field-center">
+              <i class="fas fa-camera" id="icon"></i>
+              <label for="formFile" class="form-label">写真</label>
+            </div>
+            <%= f.file_field :images, name:"portfolio[images][]", id:"formFile", class:"form-control portfolio-images",data: {index: 0},multiple:"multiple"%>
+          </div>
         </div>
 
         <div class="mb-3">
@@ -34,7 +43,6 @@
             <%= f.submit "投稿する",class: "sign-btn" %>
           </div>
         </div>
-
       <% end %>
     </div>
   </div>
