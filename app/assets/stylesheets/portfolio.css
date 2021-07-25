@@ -1,0 +1,86 @@
+.portfolio-main{
+  width: 100%;
+  min-width: 800px;
+  height: 100%;
+  background-color: #f5f6f7;
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  height:auto !important;
+}
+
+.portfolio-insert{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  margin-top: 50px;
+}
+
+.portfolio-form{
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 80%;
+}
+
+/* プレビュー画像表示 */
+.image-upload{
+  place-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: rgb(245, 245, 245);
+  border: 1px dashed rgb(204, 204, 204);
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  position: relative;
+  transition: all 0.5s ease-out 0s;
+  height: 150px;
+  width: 100%;
+  flex: 1 1 0%
+  }
+
+  /* #image-upload {
+
+  } */
+
+#formFile{
+  display: none;
+}
+
+
+.image-field-center{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.image-box{
+  width: 20%;
+  padding: 0 4px;
+}
+
+.image-file{
+  height: 120px;
+  width: 100%;
+}
+
+#portfolio-preview{
+  display: flex;
+}
+
+.edit-btn{
+  height: 30px;
+  -webkit-box-align: center;
+  align-items: center;
+  color: rgb(0, 149, 238);
+  cursor: pointer;
+  display: flex;
+  height: 32px;
+  -webkit-box-pack: center;
+  justify-content: center;
+  background-color: rgb(245, 245, 245);
+  border: 1px dashed rgb(204, 204, 204);
+}

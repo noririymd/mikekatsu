@@ -4,7 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-          # <<バリデーション>>
+  has_many :portfolios
+  has_many :favorites
+  has_many :messages
+  has_one :profile
+
   validates :nickname, presence: true
   validates :gender, presence: true
   validates :birth_date, presence: true
