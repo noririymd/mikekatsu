@@ -572,9 +572,10 @@ progress {
   content: "— ";
 }
 
-.img-fluid {
-  max-width: 100%;
-  height: auto;
+.img-field {
+  width: 100%;
+  height: 272.37px;
+  object-fit: cover;
 }
 
 .img-thumbnail {
