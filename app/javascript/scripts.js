@@ -53,9 +53,9 @@ if (location.pathname == "/" ){
     });
 
     // Activate SimpleLightbox plugin for portfolio items
-    new SimpleLightbox({
-        elements: '#portfolio a.portfolio-box'
-    });
+    // new SimpleLightbox({
+    //     elements: '#portfolio a.portfolio-box'
+    // });
 }else{
     window.onload = onLoad;
 

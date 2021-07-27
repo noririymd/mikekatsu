@@ -1,0 +1,67 @@
+  <%= render "shared/header" %>
+  <div class="portfolio-main">
+    <div class="portfolio-insert">
+      <div class="portfolio-form">
+        <p class="personal"><ins>ポートフォリオ</ins></p>
+        <div id="carouselExampleControls" class="carousel slide">
+          <div class="carousel-inner">
+          <% @portfolio.images.each_with_index do |image, n|%>
+            <%if n == 0%>
+            <div class="carousel-item active">
+              <%= image_tag image, class:"d-block" %>
+            </div>
+            <% else %>
+            <div class="carousel-item">
+              <%= image_tag image, class:"d-block" %>
+            </div>
+            <% end %>
+          <% end%>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
+        </div>
+        <%# <p class="personal"><ins>ポートフォリオ</ins></p> %>
+        <table class="detail-table">
+          <tbody>
+            <tr>
+              <th class="detail-item">出品者</th>
+              <td class="detail-value"><%= @portfolio.user.nickname %></td>
+            </tr>
+            <tr>
+              <th class="detail-item">サイト名</th>
+              <td class="detail-value"><%= @portfolio.name %></td>
+            </tr>
+            <tr>
+              <th class="detail-item">URL</th>
+              <td class="detail-value"><%=link_to nil,@portfolio.portfolio_url,target: :_blank%></td>
+            </tr>
+            <tr>
+              <th class="detail-item">言語</th>
+              <td class="detail-value"><%= @portfolio.language %></td>
+            </tr>
+
+          </tbody>
+        </table>
+            <p class="personal"><ins>サイト説明</ins></p>
+            <%= @portfolio.description %>
+        <div class="border-line"></div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <% if user_signed_in? %>
+            <% if current_user.id == @portfolio.user_id %>
+              <%= link_to '投稿内容の編集', edit_portfolio_path(@portfolio), method: :get, class: "btn btn-primary btn-field" %>
+              <%= link_to '削除', portfolio_path(@portfolio), method: :delete, data: {confirm: "削除しますか？"},class:'btn btn-primary btn-field' %>
+            <% else %>
+              <%= link_to 'メッセージを送る', "#", class:"item-red-btn"%>
+            <% end %>
+          <% end %>
+          <%# <%= link_to '戻る', root_path, class: "btn btn-secondary" %>
+        </div>
+      </div>
+    </div>
+  </div>

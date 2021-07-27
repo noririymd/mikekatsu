@@ -91,61 +91,33 @@
         <div id="portfolio">
             <div class="container-fluid p-0">
                 <div class="row g-0">
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg" title="Project Name">
-                            <%# <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="..." /> %>
-                            <%= image_tag "1.jpg", class:"img-fluid" %>
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                    <%# @portfolios.first(6).each_with_index do |portfolio,n|%>
+                    <% 6.times do |n|%>
+                        <% if @portfolios[n].present?%>
+                        <div class="col-lg-4 col-sm-6">
+                            <%= link_to portfolio_path(@portfolios[n].id) , class:"portfolio-box", title:"Project Name" do%>
+                            <%# <a class="portfolio-box"  title="Project Name"> %>
+                                <%= image_tag @portfolios[n].images[0], class:"img-field" if @portfolios[n].images.attached?%>
+                                <div class="portfolio-box-caption">
+                                    <div class="project-category text-white-50">サイト名</div>
+                                    <div class="project-name"><%= @portfolios[n].name %></div>
+                                </div>
+                            </a>
+                        <% end %>
+                        </div>
+                         <% end %>
+                        <% if @portfolios[n].blank?%>
+                            <div class="col-lg-4 col-sm-6">
+                                <a class="portfolio-box" href="#" title="Project Name">
+                                    <%= image_tag "1.jpg", class:"img-field" %>
+                                    <div class="portfolio-box-caption">
+                                        <div class="project-category text-white-50">Category</div>
+                                        <div class="project-name">Project Name</div>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/2.jpg" title="Project Name">
-                            <%= image_tag "1.jpg", class:"img-fluid" %>
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/3.jpg" title="Project Name">
-                            <%= image_tag "1.jpg", class:"img-fluid" %>
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/4.jpg" title="Project Name">
-                            <%= image_tag "1.jpg", class:"img-fluid" %>
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/5.jpg" title="Project Name">
-                            <%= image_tag "1.jpg", class:"img-fluid" %>
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/6.jpg" title="Project Name">
-                            <%= image_tag "1.jpg", class:"img-fluid" %>
-                            <div class="portfolio-box-caption p-3">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div>
-                        </a>
-                    </div>
+                        <% end %>
+                    <% end %>
                 </div>
             </div>
         </div>
